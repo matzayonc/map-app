@@ -11,6 +11,8 @@ export default class List extends Component {
     }
 
     render() {
+
+
         return (
             <View style={style.whole}>
                 <View style={{flex: 1}}>
@@ -18,20 +20,19 @@ export default class List extends Component {
                         <TouchableOpacity style={style.headerEl}><Text style={style.headerEl}>Pobierz</Text></TouchableOpacity>
                         <TouchableOpacity style={style.headerEl}><Text style={style.headerEl}>Usuń</Text></TouchableOpacity>                    
                     </View>
-                    <TouchableOpacity style={style.headerEl} onPress={()=>this.props.navigation.navigate("map", {points: this.state.points})}><Text style={style.headerEl}>Mapa</Text></TouchableOpacity>                    
+                    <TouchableOpacity style={style.headerEl} onPress={()=>this.props.navigation.navigate("map", {points: this.state.points})}>
+                        <Text style={style.headerEl}>Mapa</Text>
+                    </TouchableOpacity>                    
 
                 </View>
 
                 <View style={style.content}>
 
-                    <Text>POINS</Text>
+                <Text>POINSs</Text>
 
-
-                    {
-                        this.state.points.map(i => {
-                            <Item timestamp={i.t} lat={i.lat} lon={i.lon} />
-                        })
-                    }
+                    {this.state.points.map(i => {
+                        <Item timestamp={i.t} lat={i.lat} lon={i.lon} />
+                    })}
 
                 </View>
 
@@ -53,7 +54,7 @@ const style = StyleSheet.create({
     },
     headerEl: {
         flex: 1,
-        fontSize: 28,
+        fontSize: 18,
         textAlign: "center",
         textAlignVertical: 'center'
     }

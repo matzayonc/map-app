@@ -7,7 +7,6 @@ import * as Location from "expo-location";
 
 export default function (props) {
 
-	alert(JSON.stringify(props.route.params.points))
 
 	return (
 		<MapView

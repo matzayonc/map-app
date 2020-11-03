@@ -11,7 +11,6 @@ import * as Permissions from "expo-permissions";
 import MapComp from './comp/MapComp'
 import MyButton from './comp/MyButton'
 import List from './comp/List'
-import MapView from 'react-native-maps';
 
 
 
