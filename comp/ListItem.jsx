@@ -1,14 +1,20 @@
 import React from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet, Switch } from 'react-native'
 
 export default function (props) {
     return (
         <View style={style.container}>
-            <Text style={style.timestamp}> {props.timestamp} </Text>
-            <Text style={style.coords}> {props.lat} </Text>
-            <Text style={style.coords}> {props.lon} </Text>
+            <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
+                <Text style={style.timestamp}> {props.timestamp} </Text>
+                <Switch style={{ flex: 1, alignSelf: 'flex-end' }} value={props.fuckingValue} onValueChange={props.fuckingCallback}></Switch>
+            </View>
+            <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
+                <Text style={style.coords}> {props.lat} </Text>
+                <Text style={style.coords}> {props.lon} </Text>
+            </View>
 
-        </View>
+        </View >
+
     )
 }
 

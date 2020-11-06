@@ -47,13 +47,11 @@ export default class List extends Component {
                 { text: 'Anuluj', style: 'cancel' },
                 {
                     text: "OK", onPress: () => {
-
                         const p = { marked: false, t: pos.timestamp, lat: pos.coords.latitude, lon: pos.coords.longitude, key: pos.timestamp + Math.random() }
                         this.setState({ points: this.state.points.concat([p]) }, () => this.dump())
                     }
                 }
-            ],
-            { cancelable: false }
+            ]
         );
     }
 
@@ -63,6 +61,10 @@ export default class List extends Component {
         this.setState({ points: this.state.points.filter(i => !i.marked), allMarked: false }, () => this.dump())
     }
 
+
+    deselectByKey(key){
+
+    }
 
 
     render() {
@@ -102,7 +104,25 @@ export default class List extends Component {
 
                     <FlatList
                         data={this.state.points}
-                        renderItem={({ item }) => <Item key={item.key} timestamp={item.t} lat={item.lat} lon={item.lon} />} />
+                        renderItem={({ item }) =>
+                            <Item
+                                fuckingCallback={ ()=>{
+
+                                    let tab = this.state.points
+                                    tab.map(i => {
+                                        if(i.key == item.key)
+                                            i.marked = !i.marked            
+                                    })
+                            
+                                    this.setState({points: tab})
+                                    }
+
+                                }
+                                fuckingValue={item.marked}
+                                key={item.key}
+                                timestamp={item.t}
+                                lat={item.lat}
+                                lon={item.lon} />} />
                 </View>
 
             </View >
