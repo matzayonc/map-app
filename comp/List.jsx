@@ -26,12 +26,13 @@ export default class List extends Component {
 
                 </View>
 
+
                 <View style={style.content}>
 
                 <Text>POINSs</Text>
-
+                
                     {this.state.points.map(i => {
-                        <Item timestamp={i.t} lat={i.lat} lon={i.lon} />
+                        return <Item key={i.t} timestamp={i.t} lat={i.lat} lon={i.lon} />
                     })}
 
                 </View>

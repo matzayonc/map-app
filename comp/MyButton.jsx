@@ -17,7 +17,7 @@ class MyButton extends Component {
 MyButton.propTypes = {
     name: PropTypes.string.isRequired,
     callback: PropTypes.func.isRequired,
-    style: PropTypes.object,
+    boxStyle: PropTypes.object,
     textStyle: PropTypes.object
 
 };

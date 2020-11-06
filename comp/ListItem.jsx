@@ -1,17 +1,28 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, StyleSheet } from 'react-native'
 
 export default function (props) {
-    {console.log('a')}
-    return (<Text style={{marginTop: 100}}>AAA</Text>)
-    (
-        <View style={{ flex: 1 }}>
-            <Text> aaa </Text>
-
-            <Text> {props.timestamp} </Text>
-            <Text> {props.lat} </Text>
-            <Text> {props.lon} </Text>
+    return (
+        <View style={style.container}>
+            <Text style={style.timestamp}> {props.timestamp} </Text>
+            <Text style={style.coords}> {props.lat} </Text>
+            <Text style={style.coords}> {props.lon} </Text>
 
         </View>
     )
 }
+
+
+const style = StyleSheet.create({
+    container: {
+        flex: 1,
+        paddingLeft: 20
+    },
+    timestamp: {
+        fontSize: 20
+    },
+    coords: {
+        fontSize: 16,
+        color: 'grey'
+    }
+})

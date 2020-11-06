@@ -11,6 +11,8 @@ import * as Permissions from "expo-permissions";
 import MapComp from './comp/MapComp'
 import MyButton from './comp/MyButton'
 import List from './comp/List'
+import Start from './comp/Start'
+
 
 
 
@@ -57,8 +59,9 @@ export default class App extends Component {
     return this.state.fontloaded == false ? null : (
       <NavigationContainer>
         <Stack.Navigator>
+          <Stack.Screen name="start" component={Start} screenOptions={{ headerShow: false }} />
           <Stack.Screen name="list" component={List} />
-          <Stack.Screen name="map" component={MapComp}/>
+          <Stack.Screen name="map" component={MapComp} />
         </Stack.Navigator>
       </NavigationContainer>
 
