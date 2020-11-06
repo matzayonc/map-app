@@ -59,21 +59,15 @@ export default class App extends Component {
     return this.state.fontloaded == false ? null : (
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="start" component={Start} screenOptions={{ headerShow: false }} />
-          <Stack.Screen name="list" component={List} />
+          <Stack.Screen name="start" component={Start} options={{ headerShown: false }} />
+          <Stack.Screen name="list" component={List} options={{ title: 'Lista zapisanych pozycji' }} />
           <Stack.Screen name="map" component={MapComp} />
         </Stack.Navigator>
       </NavigationContainer>
 
     )
-
-
-
-
-
   }
 }
-
 
 const styles = StyleSheet.create({
   container: {

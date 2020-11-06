@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 class MyButton extends Component {
     render() {
         return (
-            <TouchableOpacity onPress={this.props.callback} style={this.props.style}>
-                <Text style={this.props.textStyle}> {this.props.name} </Text>
+            <TouchableOpacity onPress={this.props.callback} style={this.props.boxStyle}>
+                <Text style={this.props.textStyle}> {this.props.children} </Text>
             </TouchableOpacity >
 
         )
@@ -15,7 +15,6 @@ class MyButton extends Component {
 }
 
 MyButton.propTypes = {
-    name: PropTypes.string.isRequired,
     callback: PropTypes.func.isRequired,
     boxStyle: PropTypes.object,
     textStyle: PropTypes.object

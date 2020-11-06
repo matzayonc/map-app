@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 
 import Item from './ListItem'
+import MyButton from './MyButton'
 
 
 export default class List extends Component {
@@ -15,22 +16,22 @@ export default class List extends Component {
 
         return (
             <View style={style.whole}>
-                <View style={{flex: 1}}>
+                <View style={{ flex: 1 }}>
                     <View style={style.header}>
-                        <TouchableOpacity style={style.headerEl}><Text style={style.headerEl}>Pobierz</Text></TouchableOpacity>
-                        <TouchableOpacity style={style.headerEl}><Text style={style.headerEl}>Usuń</Text></TouchableOpacity>                    
-                    </View>
-                    <TouchableOpacity style={style.headerEl} onPress={()=>this.props.navigation.navigate("map", {points: this.state.points})}>
-                        <Text style={style.headerEl}>Mapa</Text>
-                    </TouchableOpacity>                    
+                        <MyButton boxStyle={style.headerEl} textStyle={style.headerEl}>Pobierz</MyButton>
+                        <MyButton boxStyle={style.headerEl} textStyle={style.headerEl}>Usuń</MyButton>
 
-                </View>
+                    </View>
+                    <MyButton callback={() => this.props.navigation.navigate("map", { points: this.state.points })} textStyle={style.headerEl} boxStyle={style.headerEl}>Mapa</MyButton>
+
+
+                </View >
 
 
                 <View style={style.content}>
 
-                <Text>POINSs</Text>
-                
+                    <Text>POINSs</Text>
+
                     {this.state.points.map(i => {
                         return <Item key={i.t} timestamp={i.t} lat={i.lat} lon={i.lon} />
                     })}

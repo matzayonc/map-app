@@ -17,10 +17,14 @@ export class Start extends Component {
                 </View>
 
                 <View style={{ flex: 2, backgroundColor: 'white' }}>
-                    <MyButton name='aa' textStyle={{ flex: 1, color: 0x673ab7, textAlign: 'center', textAlignVertical: 'center' }}></MyButton>
+                    <MyButton
+                        boxStyle={{ flex: 1 }}
+                        textStyle={{ flex: 1, textAlign: 'center', textAlignVertical: 'center', color: 0x673ab7, fontSize: 20 }}
+                        callback={() => this.props.navigation.navigate("list")}>
+                        START</MyButton>
                 </View>
 
-            </View>
+            </View >
         )
     }
 }
