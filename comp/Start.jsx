@@ -3,8 +3,6 @@ import { Text, View } from 'react-native'
 
 import MyButton from './MyButton'
 
-
-
 export class Start extends Component {
     render() {
         return (
@@ -30,8 +28,3 @@ export class Start extends Component {
 }
 
 export default Start
-
-/*
-<Text style={{ flex: 1, color: 0x673ab7, textAlign: 'center', textAlignVertical: 'center' }}>START</Text>
-
-*/

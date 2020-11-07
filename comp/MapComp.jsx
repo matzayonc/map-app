@@ -1,13 +1,7 @@
-import React, { Component } from 'react'
-import { Text, View, StyleSheet } from 'react-native'
-
-
+import React from 'react'
 import MapView from 'react-native-maps';
-import * as Location from "expo-location";
 
 export default function (props) {
-
-
 	return (
 		<MapView
 			style={{ flex: 1 }}
@@ -31,9 +25,5 @@ export default function (props) {
 			)}
 
 		</MapView>
-
-	)	
-		
+	)		
 }
-
-

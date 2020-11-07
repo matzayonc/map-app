@@ -6,7 +6,12 @@ export default function (props) {
         <View style={style.container}>
             <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
                 <Text style={style.timestamp}> {props.timestamp} </Text>
-                <Switch style={{ flex: 1, alignSelf: 'flex-end' }} value={props.fuckingValue} onValueChange={props.fuckingCallback}></Switch>
+                <Switch 
+                    style={{ flex: 1, alignSelf: 'flex-end' }} 
+                    value={props.value} 
+                    onValueChange={props.callback}>
+
+                </Switch>
             </View>
             <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
                 <Text style={style.coords}> {props.lat} </Text>

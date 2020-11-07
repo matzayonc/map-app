@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, Alert, Switch, AsyncStorage } from 'react-native'
+import { View, StyleSheet, Alert, Switch, AsyncStorage } from 'react-native'
 
 import * as Location from "expo-location";
 
 
 import Item from './ListItem'
 import MyButton from './MyButton'
-import { FlatList, PinchGestureHandler } from 'react-native-gesture-handler';
+import { FlatList } from 'react-native-gesture-handler';
 
 
 
@@ -90,14 +90,8 @@ export default class List extends Component {
                                 this.setState({ points: this.state.points.map(i => { i.marked = !on; return i }), allMarked: !on })
                             }}
                             style={{ flex: 1 }} />
-
-
                     </View>
-
-
-
                 </View >
-
 
                 <View style={style.content}>
 
@@ -106,20 +100,20 @@ export default class List extends Component {
                         data={this.state.points}
                         renderItem={({ item }) =>
                             <Item
-                                fuckingCallback={ ()=>{
+                                callback={ ()=>{
 
                                     let tab = this.state.points
                                     tab.map(i => {
                                         if(i.key == item.key)
                                             i.marked = !i.marked            
                                     })
-                            
-                                    this.setState({points: tab})
+                                    const reducer = (acc, i) => acc = acc && i.marked
+                                    this.setState({points: tab, allMarked: tab.reduce(reducer, true)})
                                     }
 
                                 }
-                                fuckingValue={item.marked}
-                                key={item.key}
+                                value={item.marked}
+                                key={item.key.toString()}
                                 timestamp={item.t}
                                 lat={item.lat}
                                 lon={item.lon} />} />
